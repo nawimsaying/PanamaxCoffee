@@ -6,21 +6,26 @@ import { Fade as Hamburger } from "hamburger-react";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrollY, setScrollY] = useState(0);
+    const scrollYRef = React.useRef(0);
 
     useEffect(() => {
         const body = document.body;
-        const html = document.documentElement;
+
+        if (isOpen) {
+            scrollYRef.current = window.scrollY;
+
+            body.style.overflow = "hidden";
+            body.style.touchAction = "none";
+        } else {
+            body.style.overflow = "";
+            body.style.touchAction = "";
+        }
 
         return () => {
-            body.style.position = "";
-            body.style.top = "";
-            body.style.left = "";
-            body.style.right = "";
             body.style.overflow = "";
-            html.style.overflow = "";
+            body.style.touchAction = "";
         };
-    }, [isOpen, scrollY]);
+    }, [isOpen]);
 
     const ScrollTo = (id: string) => {
         setIsOpen(false);

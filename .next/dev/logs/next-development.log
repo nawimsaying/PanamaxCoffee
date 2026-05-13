@@ -1,12 +1,14 @@
-{"timestamp":"00:00:00.928","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:06.895","source":"Server","level":"LOG","message":"○ Compiling / ..."}
-{"timestamp":"00:00:08.485","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
-{"timestamp":"00:01:06.143","source":"Server","level":"LOG","message":"✓ Compiled in 61ms"}
-{"timestamp":"00:01:13.982","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
-{"timestamp":"00:01:21.984","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"00:01:37.343","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
-{"timestamp":"00:01:47.577","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
-{"timestamp":"00:01:50.619","source":"Server","level":"LOG","message":"✓ Compiled in 20ms"}
-{"timestamp":"00:03:13.485","source":"Server","level":"LOG","message":"✓ Compiled in 35ms"}
-{"timestamp":"00:03:16.980","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:04:09.576","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:00:00.849","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:05.022","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:05.126","source":"Browser","level":"WARN","message":"Image with src \"/hero-1.webp\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading"}
+{"timestamp":"00:00:05.166","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/hero-1.webp\\\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\\\"eager\\\"` property if this image is above the fold.\\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading\\u001b[39m\""}
+{"timestamp":"00:00:05.166","source":"Browser","level":"WARN","message":"\u001b[33mImage with src \"/hero-1.webp\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading\u001b[39m"}
+{"timestamp":"00:00:07.568","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:10.127","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:48.950","source":"Server","level":"LOG","message":"✓ Compiled in 55ms"}
+{"timestamp":"00:00:54.324","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:01:05.273","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:01:55.405","source":"Server","level":"LOG","message":"✓ Compiled in 47ms"}
+{"timestamp":"00:02:03.033","source":"Server","level":"LOG","message":"✓ Compiled in 11ms"}
+{"timestamp":"00:02:07.046","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:02:15.835","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}

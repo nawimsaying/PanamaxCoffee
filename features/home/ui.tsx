@@ -8,7 +8,7 @@ import styles from "./ui.module.css";
 
 export function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrollY, setScrollY] = useState(0);
+    const scrollYRef = React.useRef(0);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -102,33 +102,20 @@ export function HomePage() {
 
     useEffect(() => {
         const body = document.body;
-        const html = document.documentElement;
 
         if (isOpen) {
-            // Сохраняем текущий скролл
-            const y = window.scrollY;
-            setScrollY(y);
+            scrollYRef.current = window.scrollY;
 
-            // Фиксируем страницу
             body.style.overflow = "hidden";
-body.style.touchAction = "none";
+            body.style.touchAction = "none";
         } else {
-            // Разблокируем страницу
             body.style.overflow = "";
             body.style.touchAction = "";
-
-            // Возвращаем страницу в сохраненную позицию
-            window.scrollTo({ top: scrollY, behavior: 'auto' });
         }
 
         return () => {
-            // Очистка стилей при размонтировании компонента
-            body.style.position = '';
-            body.style.top = '';
-            body.style.left = '';
-            body.style.right = '';
-            body.style.overflow = '';
-            html.style.overflow = '';
+            body.style.overflow = "";
+            body.style.touchAction = "";
         };
     }, [isOpen]);
 
