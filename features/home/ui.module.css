@@ -16,6 +16,11 @@
 
 .hero_container {
     display: flex;
+    max-width: 1920px;
+    margin: auto;
+    box-shadow:
+    -3px 0 0 0 black,  /* left */
+     3px 0 0 0 black;  /* right */
 }
 
 .hero_block_sep_vert_left {

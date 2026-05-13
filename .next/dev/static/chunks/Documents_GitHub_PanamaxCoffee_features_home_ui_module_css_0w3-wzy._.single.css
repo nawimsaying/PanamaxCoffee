@@ -16,7 +16,10 @@
 }
 
 .ui-module__PxwlUG__hero_container {
+  max-width: 1920px;
+  margin: auto;
   display: flex;
+  box-shadow: -3px 0 #000, 3px 0 #000;
 }
 
 .ui-module__PxwlUG__hero_block_sep_vert_left, .ui-module__PxwlUG__hero_block_sep_vert_right {
