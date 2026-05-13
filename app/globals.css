@@ -1,0 +1,152 @@
+@font-face {
+  font-family: MazzardBold;
+  src: url(../public/fonts/MazzardM-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: MazzardMedium;
+  src: url(../public/fonts/MazzardM-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: MazzardSemibold;
+  src: url(../public/fonts/MazzardM-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: MazzardRegular;
+  src: url(../public/fonts/MazzardL-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Instabread;
+  src: url(../public/fonts/InstabreadRegular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: PTMono;
+  src: url(../public/fonts/PTMono-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: DelaGothicOne;
+  src: url(../public/fonts/DelaGothicOne-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Jura;
+  src: url(../public/fonts/Jura-VariableFont_wght.ttf) format("truetype");
+}
+
+@import "tailwindcss";
+
+:root {
+  --background: #FFF8EB;
+  --foreground: #382426;
+  --accent-color: #FF6E1F;
+  --secondary-color: #D6ECF6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FFF8EB;
+    --foreground: #382426;
+  }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-button {
+  background-color: var(--accent-color);
+  font-size: 19px;
+  font-family: MazzardSemibold;
+  width: 181px;
+  height: 51px;
+  border: var(--foreground) 3px solid;
+  border-radius: 500px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.header-button:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 6px 5px 0 0 #000;
+}
+
+.header-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.about-btn {
+  width: 250px;
+  height: 60px;
+  font-size: 23px;
+}
+
+.contact-input {
+  border: #000 3px solid;
+  width: 100%;
+  padding: 25px 40px;
+  font-family: PTMono;
+  font-size: 25px;
+  color: var(--foreground);
+}
+
+.message-textarea {
+  min-height: 207px;
+  text-align: start;
+  align-items: start;
+  vertical-align: top;
+}
+
+.send-form-btn {
+  width: 250px;
+  height: 60px;
+  font-size: 23px;
+  margin: auto;
+  margin-right: 0;
+}
+
+.about-btn {
+  width: 250px;
+  height: 60px;
+  font-size: 23px;
+  margin: auto;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 810px) {
+  .about-btn {
+    width: 220px;
+    height: 50px;
+    font-size: 20px !important;
+  }
+
+  .send-form-btn {
+    width: 220px;
+    height: 50px;
+    font-size: 20px !important;
+  }
+}
