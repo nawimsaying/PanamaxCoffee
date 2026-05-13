@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/Documents/GitHub/PanamaxCoffee/app/mazzardbold_99479569.module.css"],"sourcesContent":["@font-face {\n    \nfont-family: 'mazzardBold';\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../public/fonts/MazzardM-Bold.ttf%22,%22preload%22:true,%22has_size_adjust%22:true}') format('truetype');\n    font-display: swap;\n    \n}\n\n@font-face {\n    font-family: 'mazzardBold Fallback';\n    src: local(\"Arial\");\n    ascent-override: 80.72%;\ndescent-override: 26.19%;\nline-gap-override: 19.46%;\nsize-adjust: 93.54%;\n\n}\n\n.className {\n    font-family: 'mazzardBold', 'mazzardBold Fallback';\n    \n}\n.variable {\n    --font-mazzard-bold: 'mazzardBold', 'mazzardBold Fallback';\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;AAQA;;;;;;;;;AAUA;;;;AAIA"}}]
+}

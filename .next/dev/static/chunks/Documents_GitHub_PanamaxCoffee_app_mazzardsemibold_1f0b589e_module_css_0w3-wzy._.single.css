@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/mazzardsemibold_1f0b589e.module.css [app-client] (css) */
+@font-face {
+  font-family: mazzardSemibold;
+  src: url("../media/MazzardM_SemiBold-s.p.0~o9djm.r5fay.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mazzardSemibold Fallback;
+  src: local(Arial);
+  ascent-override: 79.39%;
+  descent-override: 25.76%;
+  line-gap-override: 19.14%;
+  size-adjust: 95.1%;
+}
+
+.mazzardsemibold_1f0b589e-module__1QbJHG__className {
+  font-family: mazzardSemibold, mazzardSemibold Fallback;
+}
+
+.mazzardsemibold_1f0b589e-module__1QbJHG__variable {
+  --font-mazzard-semibold: "mazzardSemibold", "mazzardSemibold Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_mazzardsemibold_1f0b589e_module_css_0w3-wzy._.single.css.map*/

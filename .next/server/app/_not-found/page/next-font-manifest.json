@@ -2,8 +2,14 @@
   "pages": {},
   "app": {
     "[project]/Documents/GitHub/PanamaxCoffee/app/_not-found/page": [
-      "static/media/caa3a2e1cccd8315-s.p.16t1db8_9y2o~.woff2",
-      "static/media/797e433ab948586e-s.p.0.q-h669a_dqa.woff2"
+      "static/media/MazzardM_Bold-s.p.04kq6lb4r3kxg.ttf",
+      "static/media/MazzardM_Medium-s.p.15n.deymg1s9v.ttf",
+      "static/media/MazzardM_SemiBold-s.p.0~o9djm.r5fay.ttf",
+      "static/media/MazzardL_Regular-s.p.0wcbjnwa1jp23.ttf",
+      "static/media/InstabreadRegular-s.p.11071~yfre~i0.ttf",
+      "static/media/PTMono_Regular-s.p.0yzu4muefgray.ttf",
+      "static/media/DelaGothicOne_Regular-s.p.0.yn1g34ex-np.ttf",
+      "static/media/Jura_VariableFont_wght-s.p.0mrneznw~~v2m.ttf"
     ]
   },
   "appUsingSizeAdjust": true,

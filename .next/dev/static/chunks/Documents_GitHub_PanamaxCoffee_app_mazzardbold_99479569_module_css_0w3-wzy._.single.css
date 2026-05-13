@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/mazzardbold_99479569.module.css [app-client] (css) */
+@font-face {
+  font-family: mazzardBold;
+  src: url("../media/MazzardM_Bold-s.p.04kq6lb4r3kxg.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mazzardBold Fallback;
+  src: local(Arial);
+  ascent-override: 80.72%;
+  descent-override: 26.19%;
+  line-gap-override: 19.46%;
+  size-adjust: 93.54%;
+}
+
+.mazzardbold_99479569-module__1cHNVa__className {
+  font-family: mazzardBold, mazzardBold Fallback;
+}
+
+.mazzardbold_99479569-module__1cHNVa__variable {
+  --font-mazzard-bold: "mazzardBold", "mazzardBold Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_mazzardbold_99479569_module_css_0w3-wzy._.single.css.map*/

@@ -1,0 +1,87 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/widgets/footer/footer.module.css [app-client] (css) */
+.footer-module__mMcBmG__footer {
+  background-color: var(--background);
+  border-top: 3px solid #000;
+  width: 100%;
+  height: 292px;
+  display: flex;
+}
+
+.footer-module__mMcBmG__padding {
+  width: 100%;
+  max-width: 1314px;
+  margin: 50px auto auto;
+  display: flex;
+}
+
+.footer-module__mMcBmG__section {
+  flex-direction: column;
+  gap: 37px;
+  width: 25%;
+  display: flex;
+}
+
+.footer-module__mMcBmG__title {
+  font-family: var(--font-mazzard-bold);
+  color: var(--foreground);
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-module__mMcBmG__mono {
+  font-family: var(--font-ptmono);
+  color: var(--foreground);
+  margin: 0;
+  font-size: 19px;
+  line-height: 140%;
+}
+
+.footer-module__mMcBmG__socials {
+  cursor: pointer;
+  gap: 15px;
+  margin: 0;
+  display: flex;
+}
+
+@media (max-width: 1375px) {
+  .footer-module__mMcBmG__padding {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 810px) {
+  .footer-module__mMcBmG__footer {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .footer-module__mMcBmG__padding {
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 0;
+    padding: 0 16px;
+  }
+
+  .footer-module__mMcBmG__section {
+    gap: 16px;
+    width: 100%;
+  }
+
+  .footer-module__mMcBmG__title {
+    font-size: 16px;
+  }
+
+  .footer-module__mMcBmG__mono {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .footer-module__mMcBmG__socials {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_widgets_footer_footer_module_css_0w3-wzy._.single.css.map*/

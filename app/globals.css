@@ -1,43 +1,3 @@
-@font-face {
-  font-family: MazzardBold;
-  src: url(../public/fonts/MazzardM-Bold.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: MazzardMedium;
-  src: url(../public/fonts/MazzardM-Medium.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: MazzardSemibold;
-  src: url(../public/fonts/MazzardM-SemiBold.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: MazzardRegular;
-  src: url(../public/fonts/MazzardL-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: Instabread;
-  src: url(../public/fonts/InstabreadRegular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: PTMono;
-  src: url(../public/fonts/PTMono-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: DelaGothicOne;
-  src: url(../public/fonts/DelaGothicOne-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: Jura;
-  src: url(../public/fonts/Jura-VariableFont_wght.ttf) format("truetype");
-}
-
 @import "tailwindcss";
 
 :root {
@@ -74,7 +34,7 @@ body {
 .header-button {
   background-color: var(--accent-color);
   font-size: 19px;
-  font-family: MazzardSemibold;
+  font-family: var(--font-mazzard-semibold);
   width: 181px;
   height: 51px;
   border: var(--foreground) 3px solid;
@@ -108,7 +68,7 @@ body {
   border: #000 3px solid;
   width: 100%;
   padding: 25px 40px;
-  font-family: PTMono;
+  font-family: var(--font-ptmono);
   font-size: 25px;
   color: var(--foreground);
 }

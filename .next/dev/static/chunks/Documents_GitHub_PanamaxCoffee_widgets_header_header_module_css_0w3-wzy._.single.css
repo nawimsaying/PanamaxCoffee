@@ -1,0 +1,226 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/widgets/header/header.module.css [app-client] (css) */
+.header-module__RALKoq__header {
+  background-color: var(--background);
+  z-index: 10;
+  border-bottom: 3px solid #000;
+  width: 100%;
+  height: 102px;
+  display: flex;
+  position: relative;
+  overflow: visible;
+}
+
+.header-module__RALKoq__padding {
+  width: 100%;
+  max-width: 1314px;
+  margin: auto;
+  display: flex;
+}
+
+.header-module__RALKoq__logo {
+  width: 69px;
+  margin: auto auto auto 0;
+}
+
+.header-module__RALKoq__button_group {
+  gap: 44px;
+  margin: auto 0 auto auto;
+  display: flex;
+}
+
+.header-module__RALKoq__button_group a {
+  font-family: var(--font-mazzard-bold);
+  cursor: pointer;
+  color: var(--foreground);
+  margin: auto;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 1375px) {
+  .header-module__RALKoq__padding {
+    width: 90%;
+    max-width: none;
+    margin: auto;
+  }
+}
+
+@media (max-width: 810px) {
+  .header-module__RALKoq__header {
+    height: 70px;
+    position: fixed;
+  }
+
+  .header-module__RALKoq__logo {
+    z-index: 1;
+    width: 50px;
+    position: relative;
+  }
+
+  .header-module__RALKoq__button_group {
+    display: none;
+  }
+
+  .header-module__RALKoq__padding {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    position: relative;
+  }
+
+  .header-module__RALKoq__burger {
+    cursor: pointer;
+    z-index: 99999;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    pointer-events: auto;
+    background: #ffffff03;
+    border: none;
+    border-radius: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 56px;
+    height: 56px;
+    padding: 10px;
+    display: flex;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+  }
+
+  .header-module__RALKoq__burger span {
+    background-color: var(--foreground);
+    border-radius: 2px;
+    width: 100%;
+    height: 3px;
+    transition: transform .3s, opacity .3s;
+  }
+
+  .header-module__RALKoq__burger.header-module__RALKoq__active span:first-child {
+    transform: rotate(45deg)translate(6px, 6px);
+  }
+
+  .header-module__RALKoq__burger.header-module__RALKoq__active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header-module__RALKoq__burger.header-module__RALKoq__active span:nth-child(3) {
+    transform: rotate(-45deg)translate(7px, -7px);
+  }
+
+  .header-module__RALKoq__mobile_menu {
+    background-color: var(--background);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9998;
+    pointer-events: none;
+    border-top: 3px solid #000;
+    flex-direction: column;
+    gap: 0;
+    transition: transform .3s, opacity .3s, visibility .3s;
+    display: flex;
+    position: fixed;
+    inset: 70px 0 0;
+    transform: translateY(-100%);
+  }
+
+  .header-module__RALKoq__mobile_menu.header-module__RALKoq__open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .header-module__RALKoq__mobile_link {
+    font-family: var(--font-mazzard-bold);
+    color: var(--foreground);
+    border-bottom: 1px solid #0000001a;
+    padding: 18px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color .2s;
+  }
+
+  .header-module__RALKoq__mobile_link:hover, .header-module__RALKoq__mobile_link:focus-visible {
+    background-color: #0000000d;
+  }
+
+  .header-module__RALKoq__mobile_button {
+    border-bottom: none !important;
+    margin: 0 !important;
+    padding: 18px 20px !important;
+  }
+}
+
+@media (min-width: 811px) {
+  .header-module__RALKoq__burger, .header-module__RALKoq__mobile_menu {
+    display: none;
+  }
+}
+
+.header-module__RALKoq__hamburger_mobile {
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  margin: auto 0 auto auto;
+  display: none;
+}
+
+.header-module__RALKoq__mobile_header_container {
+  background: var(--background);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .3s, transform .3s, visibility .3s;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  transform: translateY(-20px);
+}
+
+.header-module__RALKoq__mobile_nav {
+  font-family: var(--font-mazzard-medium);
+}
+
+.header-module__RALKoq__mobile_header_container.header-module__RALKoq__open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.header-module__RALKoq__mobile_nav {
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  display: flex;
+}
+
+.header-module__RALKoq__mobile_nav a {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.header-module__RALKoq__mobile_button {
+  margin-top: 16px;
+}
+
+@media (max-width: 811px) {
+  .header-module__RALKoq__button_group {
+    display: none;
+  }
+
+  .header-module__RALKoq__hamburger_mobile {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_widgets_header_header_module_css_0w3-wzy._.single.css.map*/

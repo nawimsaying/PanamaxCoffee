@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/instabread_4a3014a3.module.css [app-client] (css) */
+@font-face {
+  font-family: instabread;
+  src: url("../media/InstabreadRegular-s.p.11071~yfre~i0.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: instabread Fallback;
+  src: local(Arial);
+  ascent-override: 94.01%;
+  descent-override: 31.34%;
+  line-gap-override: 32.59%;
+  size-adjust: 79.78%;
+}
+
+.instabread_4a3014a3-module___HfNqa__className {
+  font-family: instabread, instabread Fallback;
+}
+
+.instabread_4a3014a3-module___HfNqa__variable {
+  --font-instabread: "instabread", "instabread Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_instabread_4a3014a3_module_css_0w3-wzy._.single.css.map*/

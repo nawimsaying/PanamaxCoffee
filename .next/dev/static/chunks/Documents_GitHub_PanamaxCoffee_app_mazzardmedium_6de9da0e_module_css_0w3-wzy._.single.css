@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/mazzardmedium_6de9da0e.module.css [app-client] (css) */
+@font-face {
+  font-family: mazzardMedium;
+  src: url("../media/MazzardM_Medium-s.p.15n.deymg1s9v.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mazzardMedium Fallback;
+  src: local(Arial);
+  ascent-override: 78.58%;
+  descent-override: 25.5%;
+  line-gap-override: 18.94%;
+  size-adjust: 96.09%;
+}
+
+.mazzardmedium_6de9da0e-module__N2cooa__className {
+  font-family: mazzardMedium, mazzardMedium Fallback;
+}
+
+.mazzardmedium_6de9da0e-module__N2cooa__variable {
+  --font-mazzard-medium: "mazzardMedium", "mazzardMedium Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_mazzardmedium_6de9da0e_module_css_0w3-wzy._.single.css.map*/

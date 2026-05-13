@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/mazzardregular_5b76b6a4.module.css [app-client] (css) */
+@font-face {
+  font-family: mazzardRegular;
+  src: url("../media/MazzardL_Regular-s.p.0wcbjnwa1jp23.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mazzardRegular Fallback;
+  src: local(Arial);
+  ascent-override: 90.57%;
+  descent-override: 29.39%;
+  line-gap-override: 21.83%;
+  size-adjust: 83.36%;
+}
+
+.mazzardregular_5b76b6a4-module___sLzrG__className {
+  font-family: mazzardRegular, mazzardRegular Fallback;
+}
+
+.mazzardregular_5b76b6a4-module___sLzrG__variable {
+  --font-mazzard-regular: "mazzardRegular", "mazzardRegular Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_mazzardregular_5b76b6a4_module_css_0w3-wzy._.single.css.map*/

@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { Header } from "@/widgets/header/header";
 import { Footer } from "@/widgets/footer/footer";
 import React, { useState, useEffect } from "react";
@@ -161,16 +162,38 @@ body.style.touchAction = "none";
             <section className={styles.hero_container}>
                 <div className={styles.hero_block_sep_vert_left}>
                     <div className={styles.hero_img_1}>
-                        <img className={styles.img} src="./hero-1.png" alt="Hero 1" />
+                        <Image className={styles.img} src="/hero-1.png" alt="Panamax Coffee" width={800} height={600} />
                     </div>
 
                     <div className={styles.hero_line}>
-                        <p className={styles.hero_line_p}>panamax</p>
-                        <img src="./coffee.png" alt="Coffee logo" />
+                        <div className={styles.marquee}>
+                            <div className={styles.marquee_track}>
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+
+                                <p className={styles.hero_line_p}>panamax</p>
+                                <Image src="/coffee.png" alt="Panamax Coffee logo" width={46} height={66} style={{ objectFit: "contain", marginRight: '10px', marginLeft: '10px', scale: '1.2' }} />
+                            </div>
+                        </div>
                     </div>
 
                     <div className={styles.hero_img_2}>
-                        <img className={styles.img} src="./hero-2.png" alt="Hero 2" />
+                        <Image className={styles.img} src="/hero-2.png" alt="HPanamax Coffee" width={800} height={600} />
                     </div>
                 </div>
 
@@ -187,7 +210,7 @@ body.style.touchAction = "none";
                     </div>
 
                     <div className={styles.hero_img_right}>
-                        <img src="./hero-3.png" className={styles.img} alt="Hero 3" />
+                        <Image src="/hero-3.png" className={styles.img} alt="Panamax Coffee" width={800} height={600} />
                     </div>
                 </div>
             </section>
@@ -199,7 +222,7 @@ body.style.touchAction = "none";
                     <div className={styles.products_list}>
                         <div className={styles.card}>
                             <div className={styles.card_top}>
-                                <img className={styles.card_img} src="./product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" />
+                                <Image className={styles.card_img} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" width={800} height={600} style={{ objectFit: 'contain' }} />
                             </div>
                             <div className={styles.card_bottom}>
                                 <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
@@ -222,7 +245,7 @@ body.style.touchAction = "none";
                                     </div>
 
                                     <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
-                                        <img src="./Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} />
+                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
                                     </button>
                                 </div>
                             </div>
@@ -230,7 +253,7 @@ body.style.touchAction = "none";
 
                         <div className={styles.card}>
                             <div className={styles.card_top}>
-                                <img className={styles.card_img} src="./product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" />
+                                <Image className={styles.card_img} width={800} height={600} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" style={{ objectFit: 'contain' }} />
                             </div>
                             <div className={styles.card_bottom}>
                                 <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
@@ -253,7 +276,7 @@ body.style.touchAction = "none";
                                     </div>
 
                                     <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
-                                        <img src="./Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} />
+                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
                                     </button>
                                 </div>
                             </div>
@@ -261,7 +284,7 @@ body.style.touchAction = "none";
 
                         <div className={styles.card}>
                             <div className={styles.card_top}>
-                                <img className={styles.card_img} src="./product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" />
+                                <Image className={styles.card_img} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" width={800} height={600} style={{ objectFit: 'contain' }} />
                             </div>
                             <div className={styles.card_bottom}>
                                 <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
@@ -284,7 +307,7 @@ body.style.touchAction = "none";
                                     </div>
 
                                     <button className={styles.card_button} onClick={() => ScrollTo("contact")}>
-                                        <img src="./Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} />
+                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
                                     </button>
                                 </div>
                             </div>
@@ -311,7 +334,7 @@ body.style.touchAction = "none";
                         </div>
 
                         <div className={styles.about_right}>
-                            <img className={styles.img_about} src="./about.png" />
+                            <Image className={styles.img_about} src="/about.png" alt="Panamax About" width={800} height={600} />
                         </div>
                     </div>
                 </div>
@@ -326,9 +349,9 @@ body.style.touchAction = "none";
                     <p className={styles.contact_desc}>(ИЛИ НАПИШИТЕ НАМ В СОЦ. СЕТЯХ)</p>
 
                     <div className={styles.socials}>
-                        <img className={styles.social} src="./wapp.svg" />
-                        <img className={styles.social} src="./tg.svg" />
-                        <img className={styles.social} src="./vk.svg" />
+                        <Image className={styles.social} src="/wapp.svg" alt="whatsapp" width={800} height={600} />
+                        <Image className={styles.social} src="/tg.svg" alt="telegram" width={800} height={600} />
+                        <Image className={styles.social} src="/vk.svg" alt="vk" width={800} height={600} />
                     </div>
 
                     <div className={styles.contact_flex}>

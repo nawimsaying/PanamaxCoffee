@@ -1,5 +1,11 @@
-:HL["/_next/static/chunks/0ee6j3g82a.g9.css","style"]
-:HL["/_next/static/media/797e433ab948586e-s.p.0.q-h669a_dqa.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/caa3a2e1cccd8315-s.p.16t1db8_9y2o~.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/chunks/14jii7nu32jm1.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"RV2uVBdBt7thxPn2HgMYP"}
+:HL["/_next/static/chunks/0xvueeyzphz1a.css","style"]
+:HL["/_next/static/media/DelaGothicOne_Regular-s.p.0.yn1g34ex-np.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/InstabreadRegular-s.p.11071~yfre~i0.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/Jura_VariableFont_wght-s.p.0mrneznw~~v2m.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/MazzardL_Regular-s.p.0wcbjnwa1jp23.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/MazzardM_Bold-s.p.04kq6lb4r3kxg.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/MazzardM_Medium-s.p.15n.deymg1s9v.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/MazzardM_SemiBold-s.p.0~o9djm.r5fay.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/PTMono_Regular-s.p.0yzu4muefgray.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/chunks/0zm18r582nr7y.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"J0lbi793XENH8fB3COPeH"}

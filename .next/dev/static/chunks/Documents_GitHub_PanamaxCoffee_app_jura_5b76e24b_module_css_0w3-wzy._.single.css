@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/jura_5b76e24b.module.css [app-client] (css) */
+@font-face {
+  font-family: jura;
+  src: url("../media/Jura_VariableFont_wght-s.p.0mrneznw~~v2m.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: jura Fallback;
+  src: local(Arial);
+  ascent-override: 92.97%;
+  descent-override: 21.0%;
+  line-gap-override: 0.0%;
+  size-adjust: 103.8%;
+}
+
+.jura_5b76e24b-module__RbSEPW__className {
+  font-family: jura, jura Fallback;
+}
+
+.jura_5b76e24b-module__RbSEPW__variable {
+  --font-jura: "jura", "jura Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_jura_5b76e24b_module_css_0w3-wzy._.single.css.map*/

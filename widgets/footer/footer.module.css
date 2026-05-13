@@ -22,7 +22,7 @@
 }
 
 .title {
-    font-family: MazzardBold;
+    font-family: var(--font-mazzard-bold);
     font-size: 18px;
     font-weight: 700;
     color: var(--foreground);
@@ -30,7 +30,7 @@
 }
 
 .mono {
-    font-family: PTMono;
+    font-family: var(--font-ptmono);
     font-size: 19px;
     color: var(--foreground);
     margin: auto;

@@ -1,0 +1,25 @@
+/* [project]/Documents/GitHub/PanamaxCoffee/app/delagothic_8e57a88d.module.css [app-client] (css) */
+@font-face {
+  font-family: delaGothic;
+  src: url("../media/DelaGothicOne_Regular-s.p.0.yn1g34ex-np.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: delaGothic Fallback;
+  src: local(Arial);
+  ascent-override: 88.05%;
+  descent-override: 21.86%;
+  line-gap-override: 0.0%;
+  size-adjust: 131.74%;
+}
+
+.delagothic_8e57a88d-module__VCJd8a__className {
+  font-family: delaGothic, delaGothic Fallback;
+}
+
+.delagothic_8e57a88d-module__VCJd8a__variable {
+  --font-dela: "delaGothic", "delaGothic Fallback";
+}
+
+/*# sourceMappingURL=Documents_GitHub_PanamaxCoffee_app_delagothic_8e57a88d_module_css_0w3-wzy._.single.css.map*/
