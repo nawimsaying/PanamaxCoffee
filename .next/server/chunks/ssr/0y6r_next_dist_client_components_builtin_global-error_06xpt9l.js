@@ -1,0 +1,3 @@
+module.exports=[18995,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(25768);a.n(d("[project]/Documents/GitHub/PanamaxCoffee/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},39942,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(25768);a.n(d("[project]/Documents/GitHub/PanamaxCoffee/node_modules/next/dist/client/components/builtin/global-error.js"))},61246,a=>{"use strict";a.i(18995);var b=a.i(39942);a.n(b)},98607,a=>{a.n(a.i(61246))}];
+
+//# sourceMappingURL=0y6r_next_dist_client_components_builtin_global-error_06xpt9l.js.map
