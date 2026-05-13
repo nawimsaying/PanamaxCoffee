@@ -149,7 +149,7 @@ export function HomePage() {
             <section className={styles.hero_container}>
                 <div className={styles.hero_block_sep_vert_left}>
                     <div className={styles.hero_img_1}>
-                        <Image className={styles.img} src="/hero-1.webp" alt="Panamax Coffee" width={800} height={600} />
+                        <Image className={styles.img} src="/hero-1.webp" priority alt="Panamax Coffee" width={800} height={600} />
                     </div>
 
                     <div className={styles.hero_line}>
@@ -180,7 +180,7 @@ export function HomePage() {
                     </div>
 
                     <div className={styles.hero_img_2}>
-                        <Image className={styles.img} src="/hero-2.webp" alt="HPanamax Coffee" width={800} height={600} />
+                        <Image className={styles.img} src="/hero-2.webp" priority alt="HPanamax Coffee" width={800} height={600} />
                     </div>
                 </div>
 
@@ -197,7 +197,7 @@ export function HomePage() {
                     </div>
 
                     <div className={styles.hero_img_right}>
-                        <Image src="/hero-3.webp" className={styles.img} alt="Panamax Coffee" width={800} height={600} />
+                        <Image src="/hero-3.webp" className={styles.img} alt="Panamax Coffee" priority width={800} height={600} />
                     </div>
                 </div>
             </section>

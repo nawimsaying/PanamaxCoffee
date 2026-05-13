@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Dela_Gothic_One } from "next/font/google";
+import { Jura } from "next/font/google";
 
 import "./globals.css";
 import { AnchorHandler } from "./anchor-handler";
@@ -48,8 +49,8 @@ const delaGothic = Dela_Gothic_One({
     display: "swap",
 });
 
-const jura = localFont({
-    src: "../public/fonts/Jura-VariableFont_wght.ttf",
+const jura = Jura({
+    subsets: ["latin", "cyrillic"],
     variable: "--font-jura",
     display: "swap",
 });
