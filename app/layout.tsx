@@ -86,8 +86,10 @@ export default function RootLayout({
             `}
         >
             <body className="min-h-full flex flex-col bg-[#f7f5f2] text-slate-900">
-                <AnchorHandler />
-                {children}
+                <div className="page">
+                    <AnchorHandler />
+                    {children}
+                </div>
             </body>
         </html>
     );

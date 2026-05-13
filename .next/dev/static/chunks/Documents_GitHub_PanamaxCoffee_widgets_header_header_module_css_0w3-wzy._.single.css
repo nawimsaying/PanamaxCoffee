@@ -29,10 +29,10 @@
 }
 
 .header-module__RALKoq__button_group a {
-  font-family: var(--font-mazzard-bold);
   cursor: pointer;
   color: var(--foreground);
   margin: auto;
+  font-family: MazzardBold;
   font-size: 18px;
   font-weight: 700;
 }
@@ -47,7 +47,6 @@
 
 @media (max-width: 810px) {
   .header-module__RALKoq__header {
-    height: 70px;
     position: fixed;
   }
 
@@ -134,10 +133,10 @@
   }
 
   .header-module__RALKoq__mobile_link {
-    font-family: var(--font-mazzard-bold);
     color: var(--foreground);
     border-bottom: 1px solid #0000001a;
     padding: 18px 20px;
+    font-family: MazzardBold;
     font-size: 18px;
     font-weight: 700;
     text-decoration: none;
@@ -187,7 +186,7 @@
 }
 
 .header-module__RALKoq__mobile_nav {
-  font-family: var(--font-mazzard-medium);
+  font-family: MazzardMedium;
 }
 
 .header-module__RALKoq__mobile_header_container.header-module__RALKoq__open {

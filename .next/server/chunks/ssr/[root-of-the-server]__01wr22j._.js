@@ -9,6 +9,6 @@ module.exports=[99499,a=>{a.v({className:"mazzardbold_99479569-module__1cHNVa__c
                 ${r.variable}
                 h-full
                 antialiased
-            `,children:(0,b.jsxs)("body",{className:"min-h-full flex flex-col bg-[#f7f5f2] text-slate-900",children:[(0,b.jsx)(s.AnchorHandler,{}),a]})})},"metadata",0,{title:"Panamax",description:"Panamax — кофейня, магазин кофе и обжарка в Волгограде",icons:{icon:"/favicon.ico"}}],5461)},47886,a=>{a.n(a.i(5461))}];
+            `,children:(0,b.jsx)("body",{className:"min-h-full flex flex-col bg-[#f7f5f2] text-slate-900",children:(0,b.jsxs)("div",{className:"page",children:[(0,b.jsx)(s.AnchorHandler,{}),a]})})})},"metadata",0,{title:"Panamax",description:"Panamax — кофейня, магазин кофе и обжарка в Волгограде",icons:{icon:"/favicon.ico"}}],5461)},47886,a=>{a.n(a.i(5461))}];
 
 //# sourceMappingURL=%5Broot-of-the-server%5D__01wr22j._.js.map
