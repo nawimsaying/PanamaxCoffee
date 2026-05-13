@@ -575,10 +575,10 @@ body {
 
 .contact-input {
   width: 100%;
+  font-family: var(--font-ptmono);
   color: var(--foreground);
   border: 3px solid #000;
   padding: 25px 40px;
-  font-family: var(--font-ptmono);
   font-size: 25px;
 }
 

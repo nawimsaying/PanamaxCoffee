@@ -162,7 +162,7 @@ body.style.touchAction = "none";
             <section className={styles.hero_container}>
                 <div className={styles.hero_block_sep_vert_left}>
                     <div className={styles.hero_img_1}>
-                        <Image className={styles.img} src="/hero-1.png" alt="Panamax Coffee" width={800} height={600} />
+                        <Image className={styles.img} src="/hero-1.webp" alt="Panamax Coffee" width={800} height={600} />
                     </div>
 
                     <div className={styles.hero_line}>
@@ -193,7 +193,7 @@ body.style.touchAction = "none";
                     </div>
 
                     <div className={styles.hero_img_2}>
-                        <Image className={styles.img} src="/hero-2.png" alt="HPanamax Coffee" width={800} height={600} />
+                        <Image className={styles.img} src="/hero-2.webp" alt="HPanamax Coffee" width={800} height={600} />
                     </div>
                 </div>
 
@@ -210,7 +210,7 @@ body.style.touchAction = "none";
                     </div>
 
                     <div className={styles.hero_img_right}>
-                        <Image src="/hero-3.png" className={styles.img} alt="Panamax Coffee" width={800} height={600} />
+                        <Image src="/hero-3.webp" className={styles.img} alt="Panamax Coffee" width={800} height={600} />
                     </div>
                 </div>
             </section>
@@ -334,7 +334,7 @@ body.style.touchAction = "none";
                         </div>
 
                         <div className={styles.about_right}>
-                            <Image className={styles.img_about} src="/about.png" alt="Panamax About" width={800} height={600} />
+                            <Image className={styles.img_about} src="/about.webp" alt="Panamax About" width={800} height={600} />
                         </div>
                     </div>
                 </div>

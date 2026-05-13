@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Dela_Gothic_One } from "next/font/google";
 
 import "./globals.css";
 import { AnchorHandler } from "./anchor-handler";
@@ -40,8 +41,9 @@ const ptMono = localFont({
     display: "swap",
 });
 
-const delaGothic = localFont({
-    src: "../public/fonts/DelaGothicOne-Regular.ttf",
+const delaGothic = Dela_Gothic_One({
+    subsets: ["latin", "cyrillic"],
+    weight: "400",
     variable: "--font-dela",
     display: "swap",
 });

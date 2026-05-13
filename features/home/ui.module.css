@@ -133,6 +133,7 @@
     border: #000 solid 5px;
     object-fit: cover;
     width: 100%;
+    height: 100%;
 }
 
 .img_about {
@@ -551,7 +552,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1375px) {
     .hero_block_sep_vert_left {
         display: none;
     }
