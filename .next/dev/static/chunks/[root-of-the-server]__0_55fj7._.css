@@ -1733,6 +1733,10 @@
     max-width: var(--container-3xl);
   }
 
+  .resize {
+    resize: both;
+  }
+
   .flex-col {
     flex-direction: column;
   }

@@ -9,8 +9,8 @@
     "lint": "eslint",
     "db:up": "docker-compose up -d",
     "db:down": "docker-compose down",
-    "pgadmin:up": "docker-compose up -d pgadmin",
-    "pgadmin:down": "docker-compose stop pgadmin && docker-compose rm -f pgadmin"
+    "adminer:up": "docker-compose up -d adminer",
+    "adminer:down": "docker-compose stop adminer && docker-compose rm -f adminer"
   },
   "dependencies": {
     "hamburger-react": "^2.5.2",

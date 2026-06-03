@@ -3,17 +3,19 @@ import Image from "next/image";
 import { Header } from "@/widgets/header/header";
 import { Footer } from "@/widgets/footer/footer";
 import React, { useState, useEffect } from "react";
+import { ProductsList } from "./ProductsList";
+import { ContactSection } from "./ContactSection";
 
 import styles from "./ui.module.css";
 
 interface Product {
     id: number;
     title: string;
-    type: string;
-    description: string;
+    type: string | null;
+    description: string | null;
     sizes: string[];
     prices: string[];
-    image_url: string;
+    image_url: string | null;
     created_at: string;
 }
 
@@ -21,119 +23,70 @@ export function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
     const scrollYRef = React.useRef(0);
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-
-    const [loading, setLoading] = useState(false);
-
-    const [website, setWebsite] = useState("");
-
     const [products, setProducts] = useState<Product[]>([]);
     const [productsLoading, setProductsLoading] = useState(true);
+    const controllerRef = React.useRef<AbortController | null>(null);
 
-    const [errors, setErrors] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-
-    // Fetch products on mount
+    // Fetch products on mount with abort support and handle bfcache (pageshow)
     useEffect(() => {
         const fetchProducts = async () => {
+            // abort previous if any
+            if (controllerRef.current) {
+                try {
+                    controllerRef.current.abort();
+                } catch (e) {}
+            }
+
+            const controller = new AbortController();
+            controllerRef.current = controller;
+
             try {
                 setProductsLoading(true);
-                const response = await fetch("/api/products");
+
+                const response = await fetch("/api/products", { signal: controller.signal });
+
+                if (!response.ok) {
+                    console.error("Products fetch failed with status", response.status);
+                    return;
+                }
+
                 const data = await response.json();
-                
+
                 if (data.success && Array.isArray(data.data)) {
                     setProducts(data.data);
                 }
-            } catch (error) {
-                console.error("Failed to fetch products:", error);
+            } catch (error: any) {
+                if (error.name === 'AbortError') {
+                    // fetch was aborted - ignore
+                } else {
+                    console.error("Failed to fetch products:", error);
+                }
             } finally {
                 setProductsLoading(false);
             }
         };
 
+        // initial fetch
         fetchProducts();
-    }, []);
 
-    const handleSubmit = async () => {
-        const newErrors = {
-            name: "",
-            email: "",
-            message: "",
+        // if page is restored from bfcache, re-fetch
+        const onPageShow = (e: PageTransitionEvent) => {
+            if ((e as any).persisted) {
+                fetchProducts();
+            }
         };
 
-        const trimmedName = name.trim();
-        const trimmedEmail = email.trim();
-        const trimmedMessage = message.trim();
+        window.addEventListener('pageshow', onPageShow as EventListener);
 
-        // name validation
-        if (!trimmedName) {
-            newErrors.name = "Введите имя";
-        } else if (trimmedName.length < 2) {
-            newErrors.name = "Имя слишком короткое";
-        }
-
-        // email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!trimmedEmail) {
-            newErrors.email = "Введите email";
-        } else if (!emailRegex.test(trimmedEmail)) {
-            newErrors.email = "Некорректный email";
-        }
-
-        setErrors(newErrors);
-
-        if (
-            newErrors.name ||
-            newErrors.email
-        ) {
-            return;
-        }
-
-        try {
-            setLoading(true);
-
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    message,
-                    website,
-                }),
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                alert("Сообщение отправлено!");
-
-                setName("");
-                setEmail("");
-                setMessage("");
-
-                setErrors({
-                    name: "",
-                    email: "",
-                    message: "",
-                });
+        return () => {
+            window.removeEventListener('pageshow', onPageShow as EventListener);
+            if (controllerRef.current) {
+                try {
+                    controllerRef.current.abort();
+                } catch (e) {}
             }
-        } catch (error) {
-            console.error(error);
-
-            alert("Ошибка отправки");
-        } finally {
-            setLoading(false);
-        }
-    };
+        };
+    }, []);
 
     useEffect(() => {
         const body = document.body;
@@ -241,59 +194,12 @@ export function HomePage() {
                 <div className={styles.main_padding}>
                     <h3 className={styles.h3}>АССОРТИМЕНТ</h3>
 
-                    <div className={styles.products_list}>
-                        {productsLoading ? (
-                            <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Загрузка товаров...</p>
-                        ) : products.length === 0 ? (
-                            <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Товары не найдены</p>
-                        ) : (
-                            products.map((product) => (
-                                <div className={styles.card} key={product.id}>
-                                    <div className={styles.card_top}>
-                                        <Image 
-                                            className={styles.card_img} 
-                                            src={product.image_url || "/product_1.png"} 
-                                            alt={product.title} 
-                                            width={800} 
-                                            height={600} 
-                                            style={{ objectFit: 'contain' }} 
-                                        />
-                                    </div>
-                                    <div className={styles.card_bottom}>
-                                        <div>
-                                            <p className={styles.card_title}>{product.title}</p>
-                                        
-                                            {product.type && <p className={styles.card_type}>{product.type}</p>}
-                                        </div>
-
-                                        <div className={styles.divider_bottom}>
-                                            {product.description && <p className={styles.card_desc}>{product.description}</p>}
-
-                                            <div className={styles.card_flex}>
-                                                <div className={styles.card_specifications}>
-                                                    <div>
-                                                        {product.sizes.map((size, idx) => (
-                                                            <p key={idx}>{size}</p>
-                                                        ))}
-                                                    </div>
-
-                                                    <div>
-                                                        {product.prices.map((price, idx) => (
-                                                            <p key={idx}>{price}</p>
-                                                        ))}
-                                                    </div>
-                                                </div>
-
-                                                <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
-                                                    <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        )}
-                    </div>
+                    <ProductsList 
+                        products={products} 
+                        loading={productsLoading}
+                        limit={2}
+                        onOrderClick={() => ScrollTo("contact")}
+                    />
                 </div>
             </section>
 
@@ -323,117 +229,7 @@ export function HomePage() {
 
             <div className={styles.block} id="contact" />
 
-            <section className={styles.contact_container}>
-                <div className={styles.main_padding}>
-                    <h3 className={styles.h3}>ОСТАВЬТЕ <span className={styles.span}>ЗАЯВКУ</span><br/>И МЫ С ВАМИ СВЯЖЕМСЯ</h3>
-
-                    <p className={styles.contact_desc}>(ИЛИ НАПИШИТЕ НАМ В СОЦ. СЕТЯХ)</p>
-
-                    <div className={styles.socials}>
-                        <Image className={styles.social} src="/wapp.svg" alt="whatsapp" width={800} height={600} />
-                        <Image className={styles.social} src="/tg.svg" alt="telegram" width={800} height={600} />
-                        <Image className={styles.social} src="/vk.svg" alt="vk" width={800} height={600} />
-                    </div>
-
-                    <div className={styles.contact_flex}>
-                        <div className={styles.contact_flex_top}>
-                            <div className={styles.input_div}>
-                                <input
-                                    className="contact-input"
-                                    placeholder="ВАШЕ ИМЯ"
-                                    value={name}
-                                    onChange={(e) => {
-                                        setName(e.target.value);
-
-                                        if (errors.name) {
-                                            setErrors((prev) => ({
-                                                ...prev,
-                                                name: "",
-                                            }));
-                                        }
-                                    }}
-                                />
-
-                                {errors.name && (
-                                    <p className={styles.error_text}>
-                                        {errors.name}
-                                    </p>
-                                )}
-                            </div>
-
-                            <div className={styles.input_div}>
-                                <input
-                                    className="contact-input"
-                                    placeholder="ВАШ EMAIL"
-                                    value={email}
-                                    onChange={(e) => {
-                                        setEmail(e.target.value);
-
-                                        if (errors.email) {
-                                            setErrors((prev) => ({
-                                                ...prev,
-                                                email: "",
-                                            }));
-                                        }
-                                    }}
-                                />
-
-                                {errors.email && (
-                                    <p className={styles.error_text}>
-                                        {errors.email}
-                                    </p>
-                                )}
-                            </div>
-
-                            <input
-                                type="text"
-                                value={website}
-                                onChange={(e) => setWebsite(e.target.value)}
-                                autoComplete="new-password"
-                                tabIndex={-1}
-                                style={{
-                                    position: "absolute",
-                                    left: "-9999px",
-                                    opacity: 0,
-                                    pointerEvents: "none",
-                                }}
-                            />
-                        </div>
-
-                        <div>
-                            <textarea
-                                className="contact-input message-textarea"
-                                placeholder="СООБЩЕНИЕ..."
-                                value={message}
-                                onChange={(e) => {
-                                    setMessage(e.target.value);
-
-                                    if (errors.message) {
-                                        setErrors((prev) => ({
-                                            ...prev,
-                                            message: "",
-                                        }));
-                                    }
-                                }}
-                            />
-
-                            {errors.message && (
-                                <p className={styles.error_text}>
-                                    {errors.message}
-                                </p>
-                            )}
-                        </div>
-                    </div>
-
-                    <button
-                        className="header-button send-form-btn"
-                        onClick={handleSubmit}
-                        disabled={loading}
-                    >
-                        {loading ? "Отправка..." : "Отправить"}
-                    </button>
-                </div>
-            </section>
+            <ContactSection scrollToId="contact" />
         </main>
 
         <Footer />

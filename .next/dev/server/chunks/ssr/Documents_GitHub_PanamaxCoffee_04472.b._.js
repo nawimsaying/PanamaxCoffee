@@ -445,18 +445,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$Panam
 function HomePage() {
     const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const scrollYRef = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef(0);
-    const [name, setName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [website, setWebsite] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [productsLoading, setProductsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [errors, setErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
-        name: "",
-        email: "",
-        message: ""
-    });
     // Fetch products on mount
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const fetchProducts = async ()=>{
@@ -475,65 +465,6 @@ function HomePage() {
         };
         fetchProducts();
     }, []);
-    const handleSubmit = async ()=>{
-        const newErrors = {
-            name: "",
-            email: "",
-            message: ""
-        };
-        const trimmedName = name.trim();
-        const trimmedEmail = email.trim();
-        const trimmedMessage = message.trim();
-        // name validation
-        if (!trimmedName) {
-            newErrors.name = "Введите имя";
-        } else if (trimmedName.length < 2) {
-            newErrors.name = "Имя слишком короткое";
-        }
-        // email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!trimmedEmail) {
-            newErrors.email = "Введите email";
-        } else if (!emailRegex.test(trimmedEmail)) {
-            newErrors.email = "Некорректный email";
-        }
-        setErrors(newErrors);
-        if (newErrors.name || newErrors.email) {
-            return;
-        }
-        try {
-            setLoading(true);
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    message,
-                    website
-                })
-            });
-            const data = await response.json();
-            if (data.success) {
-                alert("Сообщение отправлено!");
-                setName("");
-                setEmail("");
-                setMessage("");
-                setErrors({
-                    name: "",
-                    email: "",
-                    message: ""
-                });
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Ошибка отправки");
-        } finally{
-            setLoading(false);
-        }
-    };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const body = document.body;
         if (isOpen) {
@@ -577,7 +508,7 @@ function HomePage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$widgets$2f$header$2f$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Header"], {}, void 0, false, {
                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                lineNumber: 181,
+                lineNumber: 93,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -599,12 +530,12 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 99,
                                             columnNumber: 25
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 186,
+                                        lineNumber: 98,
                                         columnNumber: 21
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -619,7 +550,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 193,
+                                                        lineNumber: 105,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -635,7 +566,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 194,
+                                                        lineNumber: 106,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -643,7 +574,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 196,
+                                                        lineNumber: 108,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -659,7 +590,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 197,
+                                                        lineNumber: 109,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -667,7 +598,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 199,
+                                                        lineNumber: 111,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -683,7 +614,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 112,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -691,7 +622,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 202,
+                                                        lineNumber: 114,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -707,7 +638,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 203,
+                                                        lineNumber: 115,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -715,7 +646,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 205,
+                                                        lineNumber: 117,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -731,7 +662,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 206,
+                                                        lineNumber: 118,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -739,7 +670,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 208,
+                                                        lineNumber: 120,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -755,7 +686,7 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 209,
+                                                        lineNumber: 121,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -763,7 +694,7 @@ function HomePage() {
                                                         children: "panamax"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 211,
+                                                        lineNumber: 123,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -779,23 +710,23 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 212,
+                                                        lineNumber: 124,
                                                         columnNumber: 33
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 104,
                                                 columnNumber: 29
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 103,
                                             columnNumber: 25
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 102,
                                         columnNumber: 21
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -809,18 +740,18 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 218,
+                                            lineNumber: 130,
                                             columnNumber: 25
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 217,
+                                        lineNumber: 129,
                                         columnNumber: 21
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                lineNumber: 185,
+                                lineNumber: 97,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -836,7 +767,7 @@ function HomePage() {
                                                     children: "Panamax"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 225,
+                                                    lineNumber: 137,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -844,14 +775,14 @@ function HomePage() {
                                                     children: "coffee roasters"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 226,
+                                                    lineNumber: 138,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$features$2f$home$2f$ui$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].divider
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 228,
+                                                    lineNumber: 140,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -860,25 +791,25 @@ function HomePage() {
                                                         "КОФЕЙНЯ • МАГАЗИН КОФЕ • ОБЖАРКА",
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 230,
+                                                            lineNumber: 142,
                                                             columnNumber: 85
                                                         }, this),
                                                         "В ВОЛГОГРАДЕ"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 230,
+                                                    lineNumber: 142,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 136,
                                             columnNumber: 25
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 135,
                                         columnNumber: 21
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -892,24 +823,24 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 235,
+                                            lineNumber: 147,
                                             columnNumber: 25
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 234,
+                                        lineNumber: 146,
                                         columnNumber: 21
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                lineNumber: 222,
+                                lineNumber: 134,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 184,
+                        lineNumber: 96,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -923,7 +854,7 @@ function HomePage() {
                                     children: "АССОРТИМЕНТ"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 242,
+                                    lineNumber: 154,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -936,7 +867,7 @@ function HomePage() {
                                         children: "Загрузка товаров..."
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 246,
+                                        lineNumber: 158,
                                         columnNumber: 29
                                     }, this) : products.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         style: {
@@ -946,7 +877,7 @@ function HomePage() {
                                         children: "Товары не найдены"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 160,
                                         columnNumber: 29
                                     }, this) : products.map((product)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$features$2f$home$2f$ui$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].card,
@@ -964,12 +895,12 @@ function HomePage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                        lineNumber: 253,
+                                                        lineNumber: 165,
                                                         columnNumber: 41
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 252,
+                                                    lineNumber: 164,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -982,7 +913,7 @@ function HomePage() {
                                                                     children: product.title
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                    lineNumber: 264,
+                                                                    lineNumber: 176,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 product.type && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -990,13 +921,13 @@ function HomePage() {
                                                                     children: product.type
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                    lineNumber: 266,
+                                                                    lineNumber: 178,
                                                                     columnNumber: 62
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 263,
+                                                            lineNumber: 175,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1007,7 +938,7 @@ function HomePage() {
                                                                     children: product.description
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                    lineNumber: 270,
+                                                                    lineNumber: 182,
                                                                     columnNumber: 69
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1021,12 +952,12 @@ function HomePage() {
                                                                                             children: size
                                                                                         }, idx, false, {
                                                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                                            lineNumber: 276,
+                                                                                            lineNumber: 188,
                                                                                             columnNumber: 61
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                                    lineNumber: 274,
+                                                                                    lineNumber: 186,
                                                                                     columnNumber: 53
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1034,18 +965,18 @@ function HomePage() {
                                                                                             children: price
                                                                                         }, idx, false, {
                                                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                                            lineNumber: 282,
+                                                                                            lineNumber: 194,
                                                                                             columnNumber: 61
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                                    lineNumber: 280,
+                                                                                    lineNumber: 192,
                                                                                     columnNumber: 53
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                            lineNumber: 273,
+                                                                            lineNumber: 185,
                                                                             columnNumber: 49
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1061,52 +992,52 @@ function HomePage() {
                                                                                 height: 36
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                                lineNumber: 288,
+                                                                                lineNumber: 200,
                                                                                 columnNumber: 53
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                            lineNumber: 287,
+                                                                            lineNumber: 199,
                                                                             columnNumber: 49
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                                    lineNumber: 272,
+                                                                    lineNumber: 184,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 269,
+                                                            lineNumber: 181,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 262,
+                                                    lineNumber: 174,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, product.id, true, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 163,
                                             columnNumber: 33
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 244,
+                                    lineNumber: 156,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                            lineNumber: 241,
+                            lineNumber: 153,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 240,
+                        lineNumber: 152,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1114,7 +1045,7 @@ function HomePage() {
                         id: "about"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 300,
+                        lineNumber: 212,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1135,7 +1066,7 @@ function HomePage() {
                                                 children: "О НАС"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 218,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1143,7 +1074,7 @@ function HomePage() {
                                                 children: "Panamax Coffee — это не просто кофейня в Волгограде, а место, где кофе раскрывается во всей полноте вкуса. Мы сами обжариваем зёрна, поэтому в вашей чашке всегда свежий и ароматный напиток."
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                lineNumber: 308,
+                                                lineNumber: 220,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1151,7 +1082,7 @@ function HomePage() {
                                                 children: "Наша команда — это эксперты, которые подберут для вас идеальный вариант: от классического эспрессо до фильтр-кофе или авторских рецептов. Мы радуем гостей не только кофе, но и уютной атмосферой, а также неизменно вежливым обслуживанием, за что нас ценят и выбирают снова и снова."
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                lineNumber: 310,
+                                                lineNumber: 222,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1160,13 +1091,13 @@ function HomePage() {
                                                 children: "Заказать зерна"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                lineNumber: 312,
+                                                lineNumber: 224,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 217,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1179,28 +1110,28 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 318,
+                                            lineNumber: 230,
                                             columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                        lineNumber: 317,
+                                        lineNumber: 229,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                lineNumber: 304,
+                                lineNumber: 216,
                                 columnNumber: 21
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                            lineNumber: 303,
+                            lineNumber: 215,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 302,
+                        lineNumber: 214,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1208,7 +1139,7 @@ function HomePage() {
                         id: "contact"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 324,
+                        lineNumber: 236,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1225,19 +1156,19 @@ function HomePage() {
                                             children: "ЗАЯВКУ"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 240,
                                             columnNumber: 56
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 240,
                                             columnNumber: 99
                                         }, this),
                                         "И МЫ С ВАМИ СВЯЖЕМСЯ"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 328,
+                                    lineNumber: 240,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1245,7 +1176,7 @@ function HomePage() {
                                     children: "(ИЛИ НАПИШИТЕ НАМ В СОЦ. СЕТЯХ)"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 330,
+                                    lineNumber: 242,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1259,7 +1190,7 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 333,
+                                            lineNumber: 245,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1270,7 +1201,7 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 334,
+                                            lineNumber: 246,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1281,13 +1212,13 @@ function HomePage() {
                                             height: 600
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 335,
+                                            lineNumber: 247,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 332,
+                                    lineNumber: 244,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1314,7 +1245,7 @@ function HomePage() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 341,
+                                                            lineNumber: 253,
                                                             columnNumber: 33
                                                         }, this),
                                                         errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1322,13 +1253,13 @@ function HomePage() {
                                                             children: errors.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 358,
+                                                            lineNumber: 270,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 340,
+                                                    lineNumber: 252,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1349,7 +1280,7 @@ function HomePage() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 365,
+                                                            lineNumber: 277,
                                                             columnNumber: 33
                                                         }, this),
                                                         errors.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1357,13 +1288,13 @@ function HomePage() {
                                                             children: errors.email
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                            lineNumber: 382,
+                                                            lineNumber: 294,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 364,
+                                                    lineNumber: 276,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1380,13 +1311,13 @@ function HomePage() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 388,
+                                                    lineNumber: 300,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 339,
+                                            lineNumber: 251,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1406,7 +1337,7 @@ function HomePage() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 404,
+                                                    lineNumber: 316,
                                                     columnNumber: 29
                                                 }, this),
                                                 errors.message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1414,19 +1345,19 @@ function HomePage() {
                                                     children: errors.message
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                                    lineNumber: 421,
+                                                    lineNumber: 333,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                            lineNumber: 403,
+                                            lineNumber: 315,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 338,
+                                    lineNumber: 250,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1436,29 +1367,29 @@ function HomePage() {
                                     children: loading ? "Отправка..." : "Отправить"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                                    lineNumber: 428,
+                                    lineNumber: 340,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                            lineNumber: 327,
+                            lineNumber: 239,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                        lineNumber: 326,
+                        lineNumber: 238,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                lineNumber: 183,
+                lineNumber: 95,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PanamaxCoffee$2f$widgets$2f$footer$2f$footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                 fileName: "[project]/Documents/GitHub/PanamaxCoffee/features/home/ui.tsx",
-                lineNumber: 439,
+                lineNumber: 351,
                 columnNumber: 9
             }, this)
         ]

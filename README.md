@@ -35,9 +35,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Local Postgres + pgAdmin
+## Local Postgres + Adminer
 
-This repo includes a `docker-compose.yml` to run a local Postgres server and pgAdmin (DB manager).
+This repo includes a `docker-compose.yml` to run a local Postgres server and Adminer (DB manager).
 
 Start services:
 
@@ -45,18 +45,14 @@ Start services:
 npm run db:up
 ```
 
-Open pgAdmin at: http://localhost:8080
+Open Adminer at: http://localhost:8080
 
-Login with:
-- Email: admin@admin.com
-- Password: admin
-
-Then add a new server with these connection values:
-- Host name/address: db
-- Port: 5432
-- Maintenance database: panamax
+Use these connection values in Adminer:
+- System: PostgreSQL
+- Server: db
 - Username: postgres
 - Password: postgres
+- Database: panamax
 
 To stop services:
 
@@ -106,10 +102,23 @@ curl -X POST http://localhost:3000/api/products \
 
 Products added through the API will automatically appear on the website.
 
-### View/Edit Products in pgAdmin
+## Pages
+
+### Main Page
+
+- URL: http://localhost:3000
+- Shows up to 2 featured products
+- Includes all main sections: hero, products, about, contact
+
+### Catalog Page
+
+- URL: http://localhost:3000/catalog
+- Shows all products from the database
+- Includes contact form at the bottom
+
+### View/Edit Products in Adminer
 
 1. Open http://localhost:8080
-2. Login with email/password shown above
-3. Add a new server with host `db`, port `5432`, user `postgres`, password `postgres`
-4. Select the `products` table to view, edit, or delete entries
+2. Use connection credentials (see above)
+3. Select `products` table to view, edit, or delete entries
 

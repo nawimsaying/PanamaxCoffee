@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./header.module.css";
 import React, { useEffect, useState } from "react";
 import { Fade as Hamburger } from "hamburger-react";
@@ -52,25 +53,23 @@ export function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.padding}>
-                <img
-                    src="/logo.png"
-                    alt="Panamax Logo"
-                    className={styles.logo}
-                />
+                <Link href="/">
+                    <img
+                        src="/logo.png"
+                        alt="Panamax Logo"
+                        className={styles.logo}
+                    />
+                </Link>
 
                 {/* Desktop navigation */}
                 <div className={styles.button_group}>
-                    <a onClick={() => ScrollTo("products")}>
+                    <Link href="/">
+                        ГЛАВНАЯ
+                    </Link>
+
+                    <Link href="/catalog">
                         АССОРТИМЕНТ
-                    </a>
-
-                    <a onClick={() => ScrollTo("about")}>
-                        О НАС
-                    </a>
-
-                    <a onClick={() => ScrollTo("contact")}>
-                        КОНТАКТЫ
-                    </a>
+                    </Link>
 
                     <button
                         onClick={() => ScrollTo("contact")}
