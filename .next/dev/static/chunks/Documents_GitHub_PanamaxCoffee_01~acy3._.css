@@ -325,6 +325,12 @@
   margin-bottom: 59px;
 }
 
+.ui-module__PxwlUG__empty {
+  font-family: var(--font-mazzard-regular);
+  color: var(--foreground);
+  font-size: 30px;
+}
+
 .ui-module__PxwlUG__hero_container {
   max-width: 1920px;
   margin: auto;

@@ -44,7 +44,9 @@ export function ProductsList({ products, loading, limit, onOrderClick }: Product
                     </div>
                 ))
             ) : displayedProducts.length === 0 ? (
-                <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Товары не найдены</p>
+                <p className={styles.empty}>
+                    Сейчас здесь пусто...
+                </p>
             ) : (
                 displayedProducts.map((product) => (
                     <ProductCard 

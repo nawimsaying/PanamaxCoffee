@@ -98,9 +98,18 @@ export function ContactSection({ scrollToId }: ContactSectionProps) {
                 <p className={styles.contact_desc}>(ИЛИ НАПИШИТЕ НАМ В СОЦ. СЕТЯХ)</p>
 
                 <div className={styles.socials}>
-                    <Image className={styles.social} src="/wapp.svg" alt="whatsapp" width={800} height={600} />
-                    <Image className={styles.social} src="/tg.svg" alt="telegram" width={800} height={600} />
-                    <Image className={styles.social} src="/vk.svg" alt="vk" width={800} height={600} />
+                    <a href="https://wa.me/79956966225" target="_blank" rel="noopener noreferrer">
+                        <Image className={styles.social} src="/wapp.svg" alt="whatsapp" width={800} height={600} />
+                    </a>
+                    <a href="https://t.me/panamaxcoffeevlg" target="_blank" rel="noopener noreferrer">
+                        <Image className={styles.social} src="/tg.svg" alt="telegram" width={800} height={600} />
+                    </a>
+                    <a href="https://vk.com/panamax.coffee" target="_blank" rel="noopener noreferrer">
+                        <Image className={styles.social} src="/vk.svg" alt="vk" width={800} height={600} />
+                    </a>
+                    <a href="https://www.instagram.com/panamax.coffee?igsh=ZjkzMTBoZzNxa2hx" target="_blank" rel="noopener noreferrer">
+                        <Image className={styles.social} src="/ig.svg" alt="instagram" width={800} height={600} />
+                    </a>
                 </div>
 
                 <div className={styles.contact_flex}>

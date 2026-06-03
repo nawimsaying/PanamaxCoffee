@@ -91,6 +91,7 @@ __turbopack_context__.v({
   "contact_flex_top": "ui-module__PxwlUG__contact_flex_top",
   "divider": "ui-module__PxwlUG__divider",
   "divider_bottom": "ui-module__PxwlUG__divider_bottom",
+  "empty": "ui-module__PxwlUG__empty",
   "error_text": "ui-module__PxwlUG__error_text",
   "h1": "ui-module__PxwlUG__h1",
   "h2": "ui-module__PxwlUG__h2",

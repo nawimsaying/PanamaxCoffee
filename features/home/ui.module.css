@@ -14,6 +14,12 @@
     width: 100%;
 }
 
+.empty {
+    font-family: var(--font-mazzard-regular);
+    font-size: 30px;
+    color: var(--foreground);
+}
+
 .hero_container {
     display: flex;
     max-width: 1920px;
