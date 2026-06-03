@@ -347,6 +347,10 @@
     display: inline-flex;
   }
 
+  .table {
+    display: table;
+  }
+
   .h-full {
     height: 100%;
   }

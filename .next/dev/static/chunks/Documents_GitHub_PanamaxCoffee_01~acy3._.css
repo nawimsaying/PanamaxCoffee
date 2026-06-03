@@ -456,7 +456,9 @@
 }
 
 .ui-module__PxwlUG__products_list {
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 45px;
   width: 100%;
   margin-top: 58px;
   display: flex;
@@ -479,7 +481,15 @@
 }
 
 .ui-module__PxwlUG__card_bottom {
+  flex-direction: column;
+  height: calc(100% - 208px);
   padding: 35px;
+  display: flex;
+}
+
+.ui-module__PxwlUG__divider_bottom {
+  width: 100%;
+  margin: auto auto 0;
 }
 
 .ui-module__PxwlUG__card_title {
@@ -676,6 +686,7 @@
   }
 
   .ui-module__PxwlUG__card_bottom {
+    height: calc(100% - 220px);
     padding: 24px;
   }
 

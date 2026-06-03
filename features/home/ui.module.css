@@ -167,6 +167,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 58px;
+    flex-wrap: wrap;
+    gap: 45px;
 }
 
 .card {
@@ -187,6 +189,15 @@
 
 .card_bottom {
     padding: 35px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 208px);
+}
+
+.divider_bottom {
+    margin: auto;
+    margin-bottom: 0px;
+    width: 100%;
 }
 
 .card_title {
@@ -387,6 +398,7 @@
 
     .card_bottom {
         padding: 24px;
+        height: calc(100% - 220px);
     }
 
     .card_title {

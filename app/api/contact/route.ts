@@ -1,7 +1,25 @@
-import { google } from "googleapis";
+import { Pool } from "pg";
 
 // simple in-memory rate limit store
 const rateLimitMap = new Map<string, number>();
+
+type GlobalWithPgPool = typeof globalThis & {
+    __pgPool?: Pool;
+};
+
+const globalWithPgPool = globalThis as GlobalWithPgPool;
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+    throw new Error("Missing DATABASE_URL environment variable");
+}
+
+const pool =
+    globalWithPgPool.__pgPool ?? new Pool({ connectionString });
+
+if (!globalWithPgPool.__pgPool) {
+    globalWithPgPool.__pgPool = pool;
+}
 
 export async function POST(req: Request) {
     try {
@@ -28,7 +46,6 @@ export async function POST(req: Request) {
         rateLimitMap.set(ip, now);
 
         const body = await req.json();
-
         const { name, email, message, website } = body;
 
         // Honeypot
@@ -47,52 +64,15 @@ export async function POST(req: Request) {
             );
         }
 
-        // auth
-        const auth = new google.auth.GoogleAuth({
-            credentials: {
-                client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-                private_key:
-                    process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(
-                        /\\n/g,
-                        "\n"
-                    ),
-            },
-            scopes: [
-                "https://www.googleapis.com/auth/spreadsheets",
-            ],
-        });
+        await pool.query(
+            `INSERT INTO contact_messages (name, email, message, created_at)
+             VALUES ($1, $2, $3, $4)`,
+            [name, email, message || "", new Date()]
+        );
 
-        const sheets = google.sheets({
-            auth,
-            version: "v4",
-        });
-
-        // append row
-        await sheets.spreadsheets.values.append({
-            spreadsheetId:
-                process.env.GOOGLE_SHEETS_SPREADSHEET_ID,
-
-            range: "Sheet1!A:D",
-
-            valueInputOption: "USER_ENTERED",
-
-            requestBody: {
-                values: [
-                    [
-                        name,
-                        email,
-                        message || "",
-                        new Date().toLocaleString(),
-                    ],
-                ],
-            },
-        });
-
-        return Response.json({
-            success: true,
-        });
+        return Response.json({ success: true });
     } catch (error) {
-        console.error(error);
+        console.error("Contact route error:", error);
 
         return Response.json(
             { error: "Something went wrong" },

@@ -6,6 +6,17 @@ import React, { useState, useEffect } from "react";
 
 import styles from "./ui.module.css";
 
+interface Product {
+    id: number;
+    title: string;
+    type: string;
+    description: string;
+    sizes: string[];
+    prices: string[];
+    image_url: string;
+    created_at: string;
+}
+
 export function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
     const scrollYRef = React.useRef(0);
@@ -18,11 +29,35 @@ export function HomePage() {
 
     const [website, setWebsite] = useState("");
 
+    const [products, setProducts] = useState<Product[]>([]);
+    const [productsLoading, setProductsLoading] = useState(true);
+
     const [errors, setErrors] = useState({
         name: "",
         email: "",
         message: "",
     });
+
+    // Fetch products on mount
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                setProductsLoading(true);
+                const response = await fetch("/api/products");
+                const data = await response.json();
+                
+                if (data.success && Array.isArray(data.data)) {
+                    setProducts(data.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch products:", error);
+            } finally {
+                setProductsLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     const handleSubmit = async () => {
         const newErrors = {
@@ -207,98 +242,57 @@ export function HomePage() {
                     <h3 className={styles.h3}>АССОРТИМЕНТ</h3>
 
                     <div className={styles.products_list}>
-                        <div className={styles.card}>
-                            <div className={styles.card_top}>
-                                <Image className={styles.card_img} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" width={800} height={600} style={{ objectFit: 'contain' }} />
-                            </div>
-                            <div className={styles.card_bottom}>
-                                <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
-                            
-                                <p className={styles.card_type}>натуральный</p>
-
-                                <p className={styles.card_desc}>Сладкий кофе со вкусом цитрусов и яблочного пирога</p>
-
-                                <div className={styles.card_flex}>
-                                    <div className={styles.card_specifications}>
+                        {productsLoading ? (
+                            <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Загрузка товаров...</p>
+                        ) : products.length === 0 ? (
+                            <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Товары не найдены</p>
+                        ) : (
+                            products.map((product) => (
+                                <div className={styles.card} key={product.id}>
+                                    <div className={styles.card_top}>
+                                        <Image 
+                                            className={styles.card_img} 
+                                            src={product.image_url || "/product_1.png"} 
+                                            alt={product.title} 
+                                            width={800} 
+                                            height={600} 
+                                            style={{ objectFit: 'contain' }} 
+                                        />
+                                    </div>
+                                    <div className={styles.card_bottom}>
                                         <div>
-                                            <p>250 гр</p>
-                                            <p>1000 гр</p>
+                                            <p className={styles.card_title}>{product.title}</p>
+                                        
+                                            {product.type && <p className={styles.card_type}>{product.type}</p>}
                                         </div>
 
-                                        <div>
-                                            <p>1259 руб</p>
-                                            <p>3778 руб</p>
+                                        <div className={styles.divider_bottom}>
+                                            {product.description && <p className={styles.card_desc}>{product.description}</p>}
+
+                                            <div className={styles.card_flex}>
+                                                <div className={styles.card_specifications}>
+                                                    <div>
+                                                        {product.sizes.map((size, idx) => (
+                                                            <p key={idx}>{size}</p>
+                                                        ))}
+                                                    </div>
+
+                                                    <div>
+                                                        {product.prices.map((price, idx) => (
+                                                            <p key={idx}>{price}</p>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
+                                                    <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
-                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
-                                    </button>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.card}>
-                            <div className={styles.card_top}>
-                                <Image className={styles.card_img} width={800} height={600} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" style={{ objectFit: 'contain' }} />
-                            </div>
-                            <div className={styles.card_bottom}>
-                                <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
-                            
-                                <p className={styles.card_type}>натуральный</p>
-
-                                <p className={styles.card_desc}>Сладкий кофе со вкусом цитрусов и яблочного пирога</p>
-
-                                <div className={styles.card_flex}>
-                                    <div className={styles.card_specifications}>
-                                        <div>
-                                            <p>250 гр</p>
-                                            <p>1000 гр</p>
-                                        </div>
-
-                                        <div>
-                                            <p>1259 руб</p>
-                                            <p>3778 руб</p>
-                                        </div>
-                                    </div>
-
-                                    <button onClick={() => ScrollTo("contact")} className={styles.card_button}>
-                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.card}>
-                            <div className={styles.card_top}>
-                                <Image className={styles.card_img} src="/product_1.png" alt="Фильтр-пакеты Гондурас Ксинакла натуральная" width={800} height={600} style={{ objectFit: 'contain' }} />
-                            </div>
-                            <div className={styles.card_bottom}>
-                                <p className={styles.card_title}>Фильтр-пакеты Гондурас Ксинакла натуральная</p>
-                            
-                                <p className={styles.card_type}>натуральный</p>
-
-                                <p className={styles.card_desc}>Сладкий кофе со вкусом цитрусов и яблочного пирога</p>
-
-                                <div className={styles.card_flex}>
-                                    <div className={styles.card_specifications}>
-                                        <div>
-                                            <p>250 гр</p>
-                                            <p>1000 гр</p>
-                                        </div>
-
-                                        <div>
-                                            <p>1259 руб</p>
-                                            <p>3778 руб</p>
-                                        </div>
-                                    </div>
-
-                                    <button className={styles.card_button} onClick={() => ScrollTo("contact")}>
-                                        <Image src="/Arrow/Arrow_Right_LG.svg" alt="Заказать" style={{ margin: 'auto' }} width={36} height={36} />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </section>
