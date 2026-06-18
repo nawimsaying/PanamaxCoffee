@@ -95,16 +95,12 @@ export function Header() {
                 }`}
             >
                 <nav className={styles.mobile_nav}>
-                    <a onClick={() => ScrollTo("products")}>
+                    <a href="/catalog">
                         АССОРТИМЕНТ
                     </a>
 
-                    <a onClick={() => ScrollTo("about")}>
-                        О НАС
-                    </a>
-
                     <a onClick={() => ScrollTo("contact")}>
-                        КОНТАКТЫ
+                        ЗАКАЗАТЬ ЗЕРНА
                     </a>
                 </nav>
             </div>
